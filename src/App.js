@@ -3,7 +3,7 @@ import react from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import UserInput from './components/userform';
-
+function App(){
   return  (
     <div>
       <UserInput/>

@@ -34,7 +34,7 @@ const UserInput = () =>{/*
         <>
         <div>
            <div>
-               <label >Full Name</label>
+               <label >Full Name </label>
                <input 
                 id="first-name"
                 className="form-fild" 

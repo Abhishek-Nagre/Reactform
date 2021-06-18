@@ -4,6 +4,7 @@ import Avatar from './avatar.png';
 import styles from './createuser.module.css';
 import validator from 'validator';
 import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import { useHistory } from 'react-router';
 import TextField from '@material-ui/core/TextField';
 import Dropzone from 'react-dropzone-uploader';
@@ -315,6 +316,9 @@ const handleInputChange = (e, index) => {
         </form>
       </div>
            <div>
+             <div className={styles.profileForm}>
+              <div className={styles.profileField}>
+                <div className={styles.profileInput}>
                <label >Full Name </label>
                <input 
                 id="first-name"
@@ -328,6 +332,7 @@ const handleInputChange = (e, index) => {
                
            </div>
            <div>
+          <div className={styles.profileInput}>
                <label >email</label>
                <input 
                 id="email"
@@ -338,9 +343,11 @@ const handleInputChange = (e, index) => {
                 value={email}
                 onChange={(e) => handleEmailInputChange(e)}
                />
-               
+               </div>
            </div>
            <div>
+        <div className={styles.profileField}>
+          <div className={styles.profileInput}>
                <label >City</label>
                <input 
                 id="city"
@@ -351,7 +358,8 @@ const handleInputChange = (e, index) => {
                 value={city}
                 onChange={(e) => handleCityInputChange(e)}
                />
-               
+               </div>
+               </div>
            </div>
            <div >
            <div className={styles.profileInput}>
@@ -364,8 +372,10 @@ const handleInputChange = (e, index) => {
                />
               </div>
            </div>
-
-
+          </div>
+          </div>
+          </div>
+  
 
 
 

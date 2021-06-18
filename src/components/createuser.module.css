@@ -1,0 +1,170 @@
+.profile {
+    float: left;
+    display: border-box;
+  }
+  
+  .profileField {
+    margin: 3vh;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .field:hover {
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+  }
+  .profileForm {
+    display: grid;
+    margin-bottom: 5vh;
+  }
+  .profileInput {
+    display: grid;
+  }
+  .box {
+    display: grid;
+  }
+  .labelOne {
+    margin-left: 5vh;
+  }
+  .labelTwo {
+    margin-left: 3vh;
+  }
+  .boxInput {
+    display: flex;
+    margin-left: 5vh;
+  }
+  .boxInputTwo {
+    display: grid;
+  }
+  
+  .memberField {
+    margin: 2vh;
+  }
+  
+  .member {
+    display: flex;
+    margin-left: 4vh;
+  }
+  .memberDetails {
+    margin-right: 4vh;
+  }
+  .buttonBox {
+    background-color: white;
+    color: black;
+    border: 2px solid #008cba;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .datePicker {
+    margin-left: 5vh;
+    padding: 10px;
+    width: 30vh;
+    radius: 25px;
+  }
+  .labelBusiness {
+    font-size: 35px;
+    font-weight: 600;
+    margin-left: 3vh;
+  }
+  
+  .formfield {
+    display: grid;
+    margin-left: 5vh;
+    margin-bottom: 5vh;
+    margin-right: 25%;
+  }
+  .formikInput {
+    display: flex;
+  }
+  .formDropzone {
+    float: left;
+    margin-left: 5vh;
+    margin-top: 20px;
+  }
+  
+  .businessDropzone {
+    float: left;
+    margin: 5vh;
+  }
+  
+  .businessEnd {
+    display: flex;
+  }
+  .buttonSave {
+    margin-top: 6vh;
+    margin-left: 15vh;
+    background-color: #008cba;
+    color: black;
+    border: 2px solid #008cba;
+    border: none;
+    color: white;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .submitButton {
+    float: left;
+    margin: 5vh;
+    background-color: #008cba;
+    color: black;
+    border: 2px solid #008cba;
+    border: none;
+    color: white;
+    padding: 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .editBusiness {
+    margin-top: 18vh;
+    margin-left: 3vh;
+  }
+  
+  .headerFive {
+    margin-left: 3vh;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .textpara {
+    font-size: 18px;
+    margin-left: 3vh;
+    font-weight: 400;
+  }
+  
+  .businessName {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3vh;
+  }
+  
+  .businessHeader {
+    margin-right: 10vh;
+  }
+  .businessHeaderTwo {
+    margin-left: 3vh;
+  }
+  .businessHeaderThree {
+    margin-left: 3vh;
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .photos {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .businessField {
+    display: flex;
+  }
+  

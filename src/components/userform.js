@@ -1,19 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 import Avatar from './avatar.png';
 import styles from './createuser.module.css';
-const [inputList, setInputList] = useState([{ name: '', mobile: '' }]);
-const [mobile, setMobile] = useState('');
+import validator from 'validator';
+import PhoneInput from 'react-phone-number-input';
+import { useHistory } from 'react-router';
+import TextField from '@material-ui/core/TextField';
+import Dropzone from 'react-dropzone-uploader';
+import 'react-dropzone-uploader/dist/styles.css';
+//import { useToasts } from 'react-toast-notifications';
+import createUserAPI from '../components/createUser';
 import updateUserImage from '../components/updateUserImage';
 import createBusiness from '../business/createBusiness';
 import addBusinessImages from '../business/addBusinessImages';
 const UserInput = () =>{
    
 
-
-
-
-
+ 
 
     const history = useHistory();
     const [imgData, setImgData] = useState(null);
@@ -28,7 +31,7 @@ const UserInput = () =>{
     const [mobile, setMobile] = useState('');
     const [emailBusiness, setEmailBusiness] = useState('');
     const [des, setDes] = useState('');
-    const { addToast } = useToasts();
+//    const { addToast } = useToasts();
     const [profilePicture, setProfilePicture] = useState('');
     const [emailError, setEmailError] = useState(false);
     const [websiteError, setWebsiteError] = useState(false);
@@ -130,7 +133,7 @@ const handleInputChange = (e, index) => {
         setDes(e.target.value);
       };
     
-      const functionBusinessImage = async (images, businessId) => {
+ /*     const functionBusinessImage = async (images, businessId) => {
         try {
           const resp = await addBusinessImages(images, businessId);
           if (resp) {
@@ -162,7 +165,7 @@ const handleInputChange = (e, index) => {
           });
         }
         console.log(resp);
-      };
+      };*/
     
       const submitProfile = async (e) => {
         e.preventDefault();
@@ -179,12 +182,12 @@ const handleInputChange = (e, index) => {
         console.log(res);
     
         if (res) {
-          addToast('User Created Successfully', {
-            appearance: 'success',
-            autoDismiss: 500,
-          });
+        //  addToast('User Created Successfully', {
+        //    appearance: 'success',
+        //    autoDismiss: 500,
+        //  });
           if (profileSelected === true) {
-            functionProfilePhoto(res.data.data.user.user_id);
+          //  functionProfilePhoto(res.data.data.user.user_id);
           }
     
           if (profileName !== '' && website !== '' && location !== '') {
@@ -217,19 +220,19 @@ const handleInputChange = (e, index) => {
           console.log(result);
           console.log(result.data.data.business.business_id);
           if (result) {
-            addToast('Business Created Successfully', {
-              appearance: 'success',
-              autoDismiss: 500,
-            });
+          //  addToast('Business Created Successfully', {
+          //    appearance: 'success',
+          //    autoDismiss: 500,
+          //  });
     
             if (businessImg.length > 0) {
               let businessPicture = [];
               for (let j = 0; j < businessImg.length; j++) {
                 businessPicture = businessImg[j].file;
-                functionBusinessImage(
-                  result.data.data.business.business_id,
-                  businessPicture,
-                );
+          //      functionBusinessImage(
+          //        result.data.data.business.business_id,
+          //        businessPicture,
+           //     );
               }
             }
           }
@@ -350,15 +353,16 @@ const handleInputChange = (e, index) => {
                />
                
            </div>
-           <div>
+           <div >
+           <div className={styles.profileInput}>
                <label >Mobile</label>
-               <phoneInput 
+               <PhoneInput 
                 country="IN"
                 value={phone}
                 style={{ padding:'10px',wodth:'40vh', radius:'25px'}}
                 onChange={setPhone}
                />
-              
+              </div>
            </div>
 
 

@@ -19,6 +19,7 @@
   }
   .profileInput {
     display: grid;
+    margin-left: 100px;
   }
   .box {
     display: grid;

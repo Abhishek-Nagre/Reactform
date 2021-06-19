@@ -9,7 +9,7 @@ import { useHistory } from 'react-router';
 import TextField from '@material-ui/core/TextField';
 import Dropzone from 'react-dropzone-uploader';
 import 'react-dropzone-uploader/dist/styles.css';
-//import { useToasts } from 'react-toast-notifications';
+import { useToasts } from 'react-toast-notifications';
 import createUserAPI from '../components/createUser';
 import updateUserImage from '../components/updateUserImage';
 import createBusiness from '../business/createBusiness';
@@ -32,7 +32,7 @@ const UserInput = () =>{
     const [mobile, setMobile] = useState('');
     const [emailBusiness, setEmailBusiness] = useState('');
     const [des, setDes] = useState('');
-//    const { addToast } = useToasts();
+    const { addToast } = useToasts();
     const [profilePicture, setProfilePicture] = useState('');
     const [emailError, setEmailError] = useState(false);
     const [websiteError, setWebsiteError] = useState(false);
@@ -93,9 +93,9 @@ const handleInputChange = (e, index) => {
   const handleAddClick = () => {
     setInputList([...inputList, { name: '', mobile: '' }]);
     console.log(inputList);
-    setTimeout(function () {
-      // console.log(data);
-    }, 2000);
+    /*setTimeout(function () {
+     console.log(data);
+    }, 2000);*/
   };
 
 
@@ -134,21 +134,7 @@ const handleInputChange = (e, index) => {
         setDes(e.target.value);
       };
     
- /*     const functionBusinessImage = async (images, businessId) => {
-        try {
-          const resp = await addBusinessImages(images, businessId);
-          if (resp) {
-            addToast('Image Uploaded Successfully', {
-              appearance: 'success',
-              autoDismiss: 500,
-            });
-          }
-          console.log(resp);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    
+
 
 
 
@@ -166,7 +152,7 @@ const handleInputChange = (e, index) => {
           });
         }
         console.log(resp);
-      };*/
+      };
     
       const submitProfile = async (e) => {
         e.preventDefault();
@@ -183,28 +169,44 @@ const handleInputChange = (e, index) => {
         console.log(res);
     
         if (res) {
-        //  addToast('User Created Successfully', {
-        //    appearance: 'success',
-        //    autoDismiss: 500,
-        //  });
+          console.log(res);
+
+          addToast('User Created Successfully', {
+            appearance: 'success',
+            autoDismiss: 500,
+         });
           if (profileSelected === true) {
-          //  functionProfilePhoto(res.data.data.user.user_id);
+           functionProfilePhoto(res.data.data.user.user_id);
           }
     
           if (profileName !== '' && website !== '' && location !== '') {
             checkError(res.data.data.user.user_id);
           }
-          setTimeout(() => {
+         /* setTimeout(() => {
             history.push('/users');
-          }, 1500);
+          }, 1500);*/
+        }
+      };
+   
+    
+    
+
+
+      const functionBusinessImage = async (images, businessId) => {
+        try {
+          const resp = await addBusinessImages(images, businessId);
+          if (resp) {
+            addToast('Image Uploaded Successfully', {
+              appearance: 'success',
+              autoDismiss: 500,
+            });
+          }
+          console.log(resp);
+        } catch (error) {
+          console.log(error);
         }
       };
     
-    
-    
-
-
-
 
      
     const handleCreateBusiness = async (businessId) => {
@@ -221,19 +223,19 @@ const handleInputChange = (e, index) => {
           console.log(result);
           console.log(result.data.data.business.business_id);
           if (result) {
-          //  addToast('Business Created Successfully', {
-          //    appearance: 'success',
-          //    autoDismiss: 500,
-          //  });
+            addToast('Business Created Successfully', {
+              appearance: 'success',
+              autoDismiss: 500,
+           });
     
             if (businessImg.length > 0) {
               let businessPicture = [];
               for (let j = 0; j < businessImg.length; j++) {
                 businessPicture = businessImg[j].file;
-          //      functionBusinessImage(
-          //        result.data.data.business.business_id,
-          //        businessPicture,
-           //     );
+                functionBusinessImage(
+                  result.data.data.business.business_id,
+                  businessPicture,
+                );
               }
             }
           }
@@ -587,4 +589,5 @@ const handleInputChange = (e, index) => {
            </>
          )
 }
+
 export default UserInput

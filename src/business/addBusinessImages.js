@@ -4,7 +4,7 @@ const createBusiness = async (businessId, images) => {
   const formData = new FormData();
   formData.append('image', images);
   const resp = await axiosInstance.patch(
-    `/un-authenticated/business/${businessId}/add-image`,
+    `/un-authenticated/business/${businessId}/add-image/`,
     formData,
   );
   const data = resp;

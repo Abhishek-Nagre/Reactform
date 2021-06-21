@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect,useState } from 'react';
 import Avatar from './avatar.png';
 import styles from './createuser.module.css';
+import './createUser.css';
 import validator from 'validator';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -291,7 +292,7 @@ const handleInputChange = (e, index) => {
 
     return(
         <>
-        <div>
+        <div className={styles.profilesys}>
         <div>
         <form className={styles.profile}>
           <div>
@@ -317,10 +318,12 @@ const handleInputChange = (e, index) => {
           </div>
         </form>
       </div>
-           <div>
+           
              <div className={styles.profileForm}>
               <div className={styles.profileField}>
+                <div className={styles.profilepart1}>
                 <div className={styles.profileInput}>
+                  
                <label >Full Name </label>
                <input 
                 id="first-name"
@@ -344,10 +347,11 @@ const handleInputChange = (e, index) => {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => handleEmailInputChange(e)}
-               />
+                />
                </div>
-           </div>
+           </div></div>
            <div>
+        <div className={styles.profilepart1}>
         <div className={styles.profileField}>
           <div className={styles.profileInput}>
                <label >City</label>
@@ -362,24 +366,20 @@ const handleInputChange = (e, index) => {
                />
                </div>
                </div>
-           </div>
+           
            <div >
            <div className={styles.profileInput}>
                <label >Mobile</label>
                <PhoneInput 
                 country="IN"
                 value={phone}
-                style={{ padding:'10px',wodth:'40vh', radius:'25px'}}
+                style={{width: '35vh', radius: '25px' }}
                 onChange={setPhone}
                />
               </div>
-           </div>
+           </div></div></div>
           </div>
-          </div>
-          </div>
-  
-
-
+          </div></div>
 
 
 
@@ -424,6 +424,7 @@ const handleInputChange = (e, index) => {
                       padding: '10px 22px',
                       width: '17vh',
                       marginRight: '3vh',
+                      borderRadius:'5px',
                     }}
                     onClick={() => handleRemoveClick(i)}
                   >
@@ -440,6 +441,7 @@ const handleInputChange = (e, index) => {
                       color: 'white',
                       padding: '10px 22px',
                       width: '17vh',
+                      borderRadius:'5px',
                     }}
                     onClick={handleAddClick}
                   >
@@ -571,6 +573,7 @@ const handleInputChange = (e, index) => {
           className={styles.submitButton}
           type="submit"
           onClick={(e) => submitProfile(e)}
+          
         >
           Submit
         </button>
@@ -578,14 +581,6 @@ const handleInputChange = (e, index) => {
 
 
 
-
-
-
-
-
-
-
-           </div>
            </>
          )
 }
